@@ -16,6 +16,5 @@ public class PersonServiceImpl implements PersonService {
 
     @Override
     public void bmrCalculator() {
-        PersonRepository.
     }
 }
