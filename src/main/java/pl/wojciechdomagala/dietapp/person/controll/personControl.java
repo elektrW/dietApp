@@ -20,11 +20,10 @@ public class personControl {
         this.personService = personService;
     }
 
-    //display list of employees
-    @GetMapping("/")
+    @GetMapping("/person")
     public String viewHomePage(Model model) {
         model.addAttribute("personInfoList", personService.getPersonInfo());
-        return "index";
+        return "person";
     }
 
     @GetMapping("/showPersonInfoForm")
@@ -40,16 +39,16 @@ public class personControl {
         return "redirect:/";
     }
 
-    @GetMapping("/BMR")
-    public String getBMRforPerson(PersonData personData) {
+
+    public double getBMRforPerson(PersonData personData) {
         double bmr = 0;
         if (personData.getMale()) {
-            bmr = genderConfig.bmrMan();
+            bmr = this.genderConfig.bmrMan();
         }
         if (personData.getFemale()) {
-            bmr = genderConfig.bmrWoman();
+            bmr = this.genderConfig.bmrWoman();
         }
-        return "bmr_calc";
+        return bmr;
     }
 
 

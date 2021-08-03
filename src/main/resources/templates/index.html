@@ -5,28 +5,13 @@
     <title>DietApp</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Person information</h1>
-        <a th:href="@{/showPersonInfoForm}" class="button">Add info</a>
-        <table border="1">
-            <tr>
-                <th scope="col">First name</th>
-                <th scope="col">Last name</th>
-                <th scope="col">Age</th>
-                <th scope="col">Growth</th>
-                <th scope="col">Weight</th>
-                <th> Actions </th>
-            </tr>
-            <tbody>
-            <tr th:each="person: ${personInfoList}">
-                <td th:text="${person.firstName}"></td>
-                <td th:text="${person.lastName}"></td>
-                <td th:text="${person.age}"></td>
-                <td th:text="${person.growth}"></td>
-                <td th:text="${person.weight}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    <h1>Welcome in dietApp</h1>
+    <h2>Options to use:</h2>
+    <p>Person information</p>
+    <a th:href="@{/person}" type="button">Add info</a>
+
+    <p>Product information</p>
+    <a th:href="@{/product}" type="button">Add product</a>
+
 </body>
 </html>

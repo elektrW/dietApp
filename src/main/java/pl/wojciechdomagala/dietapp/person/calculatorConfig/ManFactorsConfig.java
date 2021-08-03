@@ -15,7 +15,7 @@ public enum ManFactorsConfig {
         this.manFactor = factor;
     }
 
-    public double getFactor() {
+    public double getManFactor() {
         return manFactor;
     }
 }

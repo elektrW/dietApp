@@ -15,10 +15,10 @@ public class GenderConfig {
     }
 
     public double bmrMan() {
-        double BMR = ManFactorsConfig.FACTOR_MAN_1.getFactor()
-                + (ManFactorsConfig.FACTOR_MAN_2.getFactor() * personData.getWeight())
-                + (ManFactorsConfig.FACTOR_MAN_3.getFactor() * personData.getGrowth())
-                - (ManFactorsConfig.FACTOR_MAN_4.getFactor() * personData.getAge());
+        double BMR = ManFactorsConfig.FACTOR_MAN_1.getManFactor()
+                + (ManFactorsConfig.FACTOR_MAN_2.getManFactor() * personData.getWeight())
+                + (ManFactorsConfig.FACTOR_MAN_3.getManFactor() * personData.getGrowth())
+                - (ManFactorsConfig.FACTOR_MAN_4.getManFactor() * personData.getAge());
         return BMR;
     }
 

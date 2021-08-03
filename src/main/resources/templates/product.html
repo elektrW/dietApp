@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Management</title>
+</head>
+<body>
+<div class="container">
+    <h1>Products</h1>
+    <a th:href="@{/showProductInfoForm}" type="button">Add product</a>
+    <table border="1">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Protein</th>
+            <th scope="col">Fat</th>
+            <th scope="col">Carbohydrates</th>
+            <th> Actions </th>
+        </tr>
+        <tbody>
+        <tr th:each="product: ${productInfoList}">
+            <td th:text="${product.name}"></td>
+            <td th:text="${product.weight}"></td>
+            <td th:text="${product.calories}"></td>
+            <td th:text="${product.protein}"></td>
+            <td th:text="${product.fat}"></td>
+            <td th:text="${product.carbohydrates}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

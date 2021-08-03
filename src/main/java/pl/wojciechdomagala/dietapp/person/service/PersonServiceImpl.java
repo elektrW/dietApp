@@ -18,10 +18,6 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public void bmrCalculator() {
-    }
-
-    @Override
     public void savePersonInfo(PersonData personData) {
         this.personRepository.save(personData);
     }
@@ -30,4 +26,5 @@ public class PersonServiceImpl implements PersonService {
     public List<PersonData> getPersonInfo() {
         return personRepository.findAll();
     }
+
 }

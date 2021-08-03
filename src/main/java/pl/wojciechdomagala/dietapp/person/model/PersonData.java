@@ -18,6 +18,7 @@ public class PersonData {
     private Integer age;
     private Integer growth;
     private Integer weight;
+    private Double bmr;
 
     public PersonData() {}
 
@@ -27,7 +28,8 @@ public class PersonData {
                       Boolean isFemale,
                       Integer age,
                       Integer growth,
-                      Integer weight) {
+                      Integer weight,
+                      Double bmr) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isMale = isMale;
@@ -35,6 +37,7 @@ public class PersonData {
         this.age = age;
         this.growth = growth;
         this.weight = weight;
+        this.bmr = bmr;
     }
 
     public String getFirstName() {
