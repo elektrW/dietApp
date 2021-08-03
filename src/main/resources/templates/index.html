@@ -5,6 +5,26 @@
     <title>DietApp</title>
 </head>
 <body>
-
+    <h1>Calculator BMR</h1>
+    <form>
+        <fieldset>
+            <label for="FirstName">First name:</label>
+            <input id="FirstName" type="text" name="firstName" placeholder="example: John">
+            <label for="LastName">Last name:</label>
+            <input id="LastName" type="text" name="lastName" placeholder="example: Cherry">
+            <p>Gender:</p>
+            <label for="Male">Male</label>
+            <input id="Male" type="radio" name="isMale" value="Male">
+            <label for="Female">Female</label>
+            <input id="Female" type="radio" name="isFemale" value="Female">
+            <p>Weight:</p>
+            <label for="Weight">[kg] :</label>
+            <input id="Weight" type="number" name="weight" value="Weight">
+            <p>Growth:</p>
+            <label for="Growth">[cm] :</label>
+            <input id="Growth" type="number" name="growth" value="Growth">
+        </fieldset>
+        <input type="submit" value="calcBMR"/>
+    </form>
 </body>
 </html>
