@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>DietApp</title>
 </head>
 <body>
-    <h1>Calculator BMR</h1>
-    <form>
-        <fieldset>
-            <label for="FirstName">First name:</label>
-            <input id="FirstName" type="text" name="firstName" placeholder="example: John">
-            <label for="LastName">Last name:</label>
-            <input id="LastName" type="text" name="lastName" placeholder="example: Cherry">
-            <p>Gender:</p>
-            <label for="Male">Male</label>
-            <input id="Male" type="radio" name="isMale" value="Male">
-            <label for="Female">Female</label>
-            <input id="Female" type="radio" name="isFemale" value="Female">
-            <p>Weight:</p>
-            <label for="Weight">[kg] :</label>
-            <input id="Weight" type="number" name="weight" value="Weight">
-            <p>Growth:</p>
-            <label for="Growth">[cm] :</label>
-            <input id="Growth" type="number" name="growth" value="Growth">
-        </fieldset>
-        <input type="submit" value="calcBMR"/>
-    </form>
+    <div class="container">
+        <h1>Person information</h1>
+        <a th:href="@{/showPersonInfoForm}" class="button">Add info</a>
+        <table border="1">
+            <tr>
+                <th scope="col">First name</th>
+                <th scope="col">Last name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Growth</th>
+                <th scope="col">Weight</th>
+                <th> Actions </th>
+            </tr>
+            <tbody>
+            <tr th:each="person: ${personInfoList}">
+                <td th:text="${person.firstName}"></td>
+                <td th:text="${person.lastName}"></td>
+                <td th:text="${person.age}"></td>
+                <td th:text="${person.growth}"></td>
+                <td th:text="${person.weight}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

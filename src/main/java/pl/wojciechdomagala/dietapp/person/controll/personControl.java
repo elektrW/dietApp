@@ -2,7 +2,10 @@ package pl.wojciechdomagala.dietapp.person.controll;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import pl.wojciechdomagala.dietapp.person.calculatorConfig.GenderConfig;
 import pl.wojciechdomagala.dietapp.person.model.PersonData;
 import pl.wojciechdomagala.dietapp.person.service.PersonService;
@@ -17,8 +20,28 @@ public class personControl {
         this.personService = personService;
     }
 
+    //display list of employees
+    @GetMapping("/")
+    public String viewHomePage(Model model) {
+        model.addAttribute("personInfoList", personService.getPersonInfo());
+        return "index";
+    }
+
+    @GetMapping("/showPersonInfoForm")
+    public String showNewPersonForm(Model model) {
+        PersonData personData = new PersonData();
+        model.addAttribute("personData", personData);
+        return "new_person";
+    }
+
+    @PostMapping("/savePersonInfo")
+    public String savePersonInfo(@ModelAttribute PersonData personData) {
+        personService.savePersonInfo(personData);
+        return "redirect:/";
+    }
+
     @GetMapping("/BMR")
-    public double getBMRforPerson(PersonData personData) {
+    public String getBMRforPerson(PersonData personData) {
         double bmr = 0;
         if (personData.getMale()) {
             bmr = genderConfig.bmrMan();
@@ -26,7 +49,7 @@ public class personControl {
         if (personData.getFemale()) {
             bmr = genderConfig.bmrWoman();
         }
-        return bmr;
+        return "bmr_calc";
     }
 
 
