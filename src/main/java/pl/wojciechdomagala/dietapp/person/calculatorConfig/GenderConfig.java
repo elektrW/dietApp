@@ -21,5 +21,4 @@ public class GenderConfig {
                 - (ManFactorsConfig.FACTOR_MAN_4.getManFactor() * personData.getAge());
         return BMR;
     }
-
 }

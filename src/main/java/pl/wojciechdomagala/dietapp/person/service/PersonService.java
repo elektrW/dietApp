@@ -7,4 +7,6 @@ import java.util.List;
 public interface PersonService {
     void savePersonInfo(PersonData personData);
     List<PersonData> getPersonInfo();
+    PersonData getPersonDataById(Long id);
+    void deletePersonById(Long id);
 }

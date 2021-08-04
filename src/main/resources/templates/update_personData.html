@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update management for person data</title>
+</head>
+<body>
+<h1>Update Person Data</h1>
+<form action="#" th:action="@{/savePersonInfo}" th:object="${personData}" method="POST">
+    <input type="hidden" th:field="*{id}"/>
+    <fieldset>
+        <legend>Names</legend>
+        <label>First name:</label>
+        <input type="text" th:field="*{firstName}" placeholder="example: John" class="form-control mb-4 col-4"><br>
+        <label>Last name:</label>
+        <input type="text" th:field="*{lastName}" placeholder="example: Cherry" class="form-control mb-4 col-4"><br>
+    </fieldset>
+    <fieldset>
+        <legend>BMR Data</legend>
+        <fieldset>
+            <legend>Gender</legend>
+            <input type="radio" name="gender" class="form-control mb-4 col-4">Male<br>
+            <input type="radio" name="gender" class="form-control mb-4 col-4">Female<br>
+        </fieldset>
+        <fieldset>
+            <legend>Body</legend>
+            <label>Age:</label>
+            <input type="number" th:field="*{age}" placeholder="25" class="form-control mb-4 col-4"><br>
+            <label>Growth [cm]:</label>
+            <input type="number" th:field="*{growth}" placeholder="185" class="form-control mb-4 col-4"><br>
+            <label>Weight [kg]:</label>
+            <input type="number" th:field="*{weight}" placeholder="80" class="form-control mb-4 col-4"><br>
+        </fieldset>
+    </fieldset>
+    <button type="submit" class="btn btn-success col-2">Update</button>
+</form>
+</body>
+</html>
