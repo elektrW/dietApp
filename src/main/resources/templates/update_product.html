@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<<head>
+  <meta charset="UTF-8">
+  <title>Update management for product</title>
+</head>
+<body>
+<h1>Update Person Data</h1>
+<form action="#" th:action="@{/saveProductInfo}" th:object="${personData}" method="POST">
+  <input type="hidden" th:field="*{id}"/>
+  <label>Name:</label>
+  <p><input type="text" th:field="*{name}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <label>Weight:</label>
+  <p><input type="number" th:field="*{weight}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <label>Calories:</label>
+  <p><input type="number" th:field="*{calories}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <label>Protein:</label>
+  <p><input type="number" th:field="*{protein}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <label>Fat:</label>
+  <p><input type="number" th:field="*{fat}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <label>Carbohydrates:</label>
+  <p><input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control mb-4 col-4"></p>
+  <button type="submit" class="btn btn-success col-2">Update</button>
+</form>
+</body>
+</html>

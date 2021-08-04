@@ -12,6 +12,7 @@
     <table border="1">
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Weight</th>
             <th scope="col">Calories</th>
             <th scope="col">Protein</th>
             <th scope="col">Fat</th>
@@ -26,6 +27,9 @@
             <td th:text="${product.protein}"></td>
             <td th:text="${product.fat}"></td>
             <td th:text="${product.carbohydrates}"></td>
+            <td>
+                <a th:href="@{/showFormForUpdateProduct/{id}(id=${product.id})}" type="button">Update</a>
+            </td>
         </tr>
         </tbody>
     </table>
