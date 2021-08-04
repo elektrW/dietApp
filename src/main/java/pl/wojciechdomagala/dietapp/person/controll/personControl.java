@@ -51,6 +51,12 @@ public class personControl {
         return "update_personData";
     }
 
+    @GetMapping("/deletePerson/{id}")
+    public String deletePersonById(@PathVariable Long id) {
+        this.personService.deletePersonById(id);
+        return "redirect:/person";
+    }
+
 //THIS CODE NEED TO WAIT FOR CLASSES 'CALCULATOR BMR'
 //    public double getBMRforPerson(PersonData personData) {
 //        double bmr = 0;

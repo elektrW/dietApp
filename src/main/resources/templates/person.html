@@ -29,6 +29,7 @@
           <td th:text="${person.bmr}"></td>
           <td>
             <a th:href="@{/showFormForUpdatePerson/{id}(id=${person.id})}" type="button">Update</a>
+            <a th:href="@{/deletePerson/{id}(id=${person.id})}" type="button">Delete</a>
           </td>
         </tr>
         </tbody>

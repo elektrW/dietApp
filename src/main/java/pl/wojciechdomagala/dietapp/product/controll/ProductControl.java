@@ -48,4 +48,10 @@ public class ProductControl {
         return "update_product";
     }
 
+    @GetMapping("/deleteProduct/{id}")
+    public String deleteProductById(@PathVariable Long id) {
+        this.productService.deleteProductById(id);
+        return "redirect:/product";
+    }
+
 }
