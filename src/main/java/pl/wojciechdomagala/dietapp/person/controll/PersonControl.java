@@ -12,12 +12,12 @@ import pl.wojciechdomagala.dietapp.person.model.PersonData;
 import pl.wojciechdomagala.dietapp.person.service.PersonService;
 
 @Controller
-public class personControl {
+public class PersonControl {
     private PersonService personService;
     private GenderConfig genderConfig;
 
     @Autowired
-    public personControl(PersonService personService) {
+    public PersonControl(PersonService personService) {
         this.personService = personService;
     }
 
@@ -56,18 +56,4 @@ public class personControl {
         this.personService.deletePersonById(id);
         return "redirect:/person";
     }
-
-//THIS CODE NEED TO WAIT FOR CLASSES 'CALCULATOR BMR'
-//    public double getBMRforPerson(PersonData personData) {
-//        double bmr = 0;
-//        if (personData.getMale()) {
-//            bmr = this.genderConfig.bmrMan();
-//        }
-//        if (personData.getFemale()) {
-//            bmr = this.genderConfig.bmrWoman();
-//        }
-//        return bmr;
-//    }
-
-
 }
