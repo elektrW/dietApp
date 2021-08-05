@@ -1,6 +1,9 @@
 package pl.wojciechdomagala.dietapp.person.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "PersonData")
@@ -11,12 +14,20 @@ public class PersonData {
     private Long id;
 
     //Data for basic calories
+    @NotBlank(message = "The field cannot be empty")
     private String firstName;
+    @NotBlank(message = "The field cannot be empty")
     private String lastName;
     private Boolean isMale;
     private Boolean isFemale;
+    @NotNull
+    @Size(min = 16, message = "The minimum age is 16")
     private Integer age;
+    @NotNull
+    @Size(min = 130, message = "The minimum growth is 130cm")
     private Integer growth;
+    @NotNull
+    @Size(min = 20, message = "The minimum weight is 20kg")
     private Integer weight;
     private Double bmr;
 
