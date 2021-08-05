@@ -8,17 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import pl.wojciechdomagala.dietapp.person.calculatorConfig.GenderConfig;
 import pl.wojciechdomagala.dietapp.person.model.PersonData;
 import pl.wojciechdomagala.dietapp.person.service.PersonService;
-import pl.wojciechdomagala.dietapp.product.model.Product;
-
-import javax.validation.Valid;
 
 @Controller
 public class PersonControl {
     private PersonService personService;
-    private GenderConfig genderConfig;
 
     @Autowired
     public PersonControl(PersonService personService) {
@@ -42,7 +37,7 @@ public class PersonControl {
 
     @PostMapping("/savePersonInfo")
     public String savePersonInfo(@ModelAttribute PersonData personData, Errors errors) {
-                personService.savePersonInfo(personData);
+        personService.savePersonInfo(personData);
         return "redirect:/person";
     }
 
