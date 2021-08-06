@@ -4,3 +4,4 @@ Structure of APP:
 ##TECHNOLOGIES: Java, MySQL, Hibernate, Spring Data JPA, Spring MVC, Thymeleaf ##
 
 ##OPTIONS##
+DB FOR PERSON WITH PRODUCTS TO CHECK.
