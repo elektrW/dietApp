@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import pl.wojciechdomagala.dietapp.product.model.Product;
 import pl.wojciechdomagala.dietapp.product.service.ProductService;
 
-import javax.validation.Valid;
 
 @Controller
 public class ProductControl {

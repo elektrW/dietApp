@@ -3,13 +3,13 @@ package pl.wojciechdomagala.dietapp.person.controll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.wojciechdomagala.dietapp.person.model.PersonData;
 import pl.wojciechdomagala.dietapp.person.service.PersonService;
+
 
 @Controller
 public class PersonControl {
@@ -21,9 +21,7 @@ public class PersonControl {
     }
 
     @GetMapping("/person")
-    public String viewHomePage(Model model) {
-        PersonData personData = new PersonData();
-        personData.setBmr(3.0);
+    public String viewHomePage(Model model, @ModelAttribute PersonData personData) {
         model.addAttribute("personInfoList", personService.getPersonInfo());
         return "person";
     }
@@ -36,7 +34,7 @@ public class PersonControl {
     }
 
     @PostMapping("/savePersonInfo")
-    public String savePersonInfo(@ModelAttribute PersonData personData, Errors errors) {
+    public String savePersonInfo(@ModelAttribute PersonData personData) {
         personService.savePersonInfo(personData);
         return "redirect:/person";
     }
