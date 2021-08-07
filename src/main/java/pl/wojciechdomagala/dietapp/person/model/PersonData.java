@@ -1,5 +1,7 @@
 package pl.wojciechdomagala.dietapp.person.model;
 
+import pl.wojciechdomagala.dietapp.person.calculatorConfig.ManFactorsConfig;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -29,7 +31,7 @@ public class PersonData {
     @NotNull
     @Size(min = 20, message = "The minimum weight is 20kg")
     private Integer weight;
-    private Double bmr;
+    private double BMR;
 
     public PersonData() {}
 
@@ -40,7 +42,7 @@ public class PersonData {
                       Integer age,
                       Integer growth,
                       Integer weight,
-                      Double bmr) {
+                      double BMR) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.isMale = isMale;
@@ -48,7 +50,7 @@ public class PersonData {
         this.age = age;
         this.growth = growth;
         this.weight = weight;
-        this.bmr = bmr;
+        this.BMR = BMR;
     }
 
     public Long getId() {
@@ -115,11 +117,13 @@ public class PersonData {
         this.weight = weight;
     }
 
-    public Double getBmr() {
-        return bmr;
+    public double getBMR() {
+        double BMR = ManFactorsConfig.FACTOR_MAN_1.getManFactor()
+                + (ManFactorsConfig.FACTOR_MAN_2.getManFactor() * getWeight())
+                + (ManFactorsConfig.FACTOR_MAN_3.getManFactor() * getGrowth())
+                - (ManFactorsConfig.FACTOR_MAN_4.getManFactor() * getAge());
+        return BMR;
     }
 
-    public void setBmr(Double bmr) {
-        this.bmr = bmr;
-    }
+
 }
