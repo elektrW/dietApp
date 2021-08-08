@@ -1,11 +1,11 @@
 package pl.wojciechdomagala.dietapp.person.model;
 
 import pl.wojciechdomagala.dietapp.person.calculatorConfig.ManFactorsConfig;
+import pl.wojciechdomagala.dietapp.person.calculatorConfig.WomanFactorsConfig;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
+
 
 @Entity
 @Table(name = "PersonData")
@@ -16,41 +16,48 @@ public class PersonData {
     private Long id;
 
     //Data for basic calories
-    @NotBlank(message = "The field cannot be empty")
+    @NotEmpty(message = "The field cannot be empty")
+    @Size(min = 2, message = "At least 2 letters")
     private String firstName;
-    @NotBlank(message = "The field cannot be empty")
+
+    @NotEmpty(message = "The field cannot be empty")
+    @Size(min = 2, message = "At least 2 letters")
     private String lastName;
-    private Boolean isMale;
-    private Boolean isFemale;
-    @NotNull
-    @Size(min = 16, message = "The minimum age is 16")
+    private Gender gender;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 16, message = "The minimum age is 16")
     private Integer age;
-    @NotNull
-    @Size(min = 130, message = "The minimum growth is 130cm")
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 130, message = "The minimum growth is 130cm")
     private Integer growth;
-    @NotNull
-    @Size(min = 20, message = "The minimum weight is 20kg")
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 20, message = "The minimum weight is 20kg")
     private Integer weight;
+
     private double BMR;
 
-    public PersonData() {}
+    public PersonData() {
+    }
 
     public PersonData(String firstName,
                       String lastName,
-                      Boolean isMale,
-                      Boolean isFemale,
+                      Gender gender,
                       Integer age,
                       Integer growth,
                       Integer weight,
                       double BMR) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.isMale = isMale;
-        this.isFemale = isFemale;
-        this.age = age;
-        this.growth = growth;
-        this.weight = weight;
-        this.BMR = BMR;
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.gender = gender;
+            this.age = age;
+            this.growth = growth;
+            this.weight = weight;
+            this.BMR = BMR;
+        }
     }
 
     public Long getId() {
@@ -77,20 +84,12 @@ public class PersonData {
         this.lastName = lastName;
     }
 
-    public Boolean getMale() {
-        return isMale;
+    public Gender getGender() {
+        return gender;
     }
 
-    public void setMale(Boolean male) {
-        isMale = male;
-    }
-
-    public Boolean getFemale() {
-        return isFemale;
-    }
-
-    public void setFemale(Boolean female) {
-        isFemale = female;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public Integer getAge() {
@@ -118,12 +117,22 @@ public class PersonData {
     }
 
     public double getBMR() {
-        double BMR = ManFactorsConfig.FACTOR_MAN_1.getManFactor()
-                + (ManFactorsConfig.FACTOR_MAN_2.getManFactor() * getWeight())
-                + (ManFactorsConfig.FACTOR_MAN_3.getManFactor() * getGrowth())
-                - (ManFactorsConfig.FACTOR_MAN_4.getManFactor() * getAge());
-        return BMR;
+        if (getGender() == Gender.MALE) {
+            double BMR = ManFactorsConfig.FACTOR_MAN_1.getManFactor()
+                    + (ManFactorsConfig.FACTOR_MAN_2.getManFactor() * getWeight())
+                    + (ManFactorsConfig.FACTOR_MAN_3.getManFactor() * getGrowth())
+                    - (ManFactorsConfig.FACTOR_MAN_4.getManFactor() * getAge());
+            System.out.println("BMR mężczyzny to " + BMR);
+            return Math.round(BMR);
+        }
+        if (getGender() == Gender.FEMALE) {
+            double BMR = WomanFactorsConfig.FACTOR_WOMAN_1.getWomanFactor()
+                    + (WomanFactorsConfig.FACTOR_WOMAN_2.getWomanFactor() * getWeight())
+                    + (WomanFactorsConfig.FACTOR_WOMAN_3.getWomanFactor() * getGrowth())
+                    - (WomanFactorsConfig.FACTOR_WOMAN_4.getWomanFactor() * getAge());
+            System.out.println("BMR kobiety to " + BMR);
+            return Math.round(BMR);
+        }
+        return BMR = 0.0;
     }
-
-
 }
