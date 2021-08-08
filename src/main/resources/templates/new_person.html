@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Person Management</title>
@@ -11,24 +12,31 @@
         <fieldset>
             <legend>Names</legend>
             <label>First name:</label>
+            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:#FF0000">First name errors</label></br>
             <input type="text" th:field="*{firstName}" placeholder="example: John" class="form-control mb-4 col-4"><br>
             <label>Last name:</label>
+            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:#FF0000">Last name errors</label></br>
             <input type="text" th:field="*{lastName}" placeholder="example: Cherry" class="form-control mb-4 col-4"><br>
         </fieldset>
         <fieldset>
             <legend>BMR Data</legend>
             <fieldset>
                 <legend>Gender</legend>
-                <input type="radio" name="gender" class="form-control mb-4 col-4">Male<br>
-                <input type="radio" name="gender" class="form-control mb-4 col-4">Female<br>
+                    <select th:field="*{gender}">
+                        <option th:value="'MALE'" th:text="Male"></option>
+                        <option th:value="'FEMALE'" th:text="Female"></option>
+                    </select>
             </fieldset>
             <fieldset>
                 <legend>Body</legend>
                 <label>Age:</label>
+                <label th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color:#FF0000">Age errors</label></br>
                 <input type="number" th:field="*{age}" placeholder="25" class="form-control mb-4 col-4"><br>
                 <label>Growth [cm]:</label>
+                <label th:if="${#fields.hasErrors('growth')}" th:errors="*{growth}" style="color:#FF0000">Growth errors</label></br>
                 <input type="number" th:field="*{growth}" placeholder="185" class="form-control mb-4 col-4"><br>
                 <label>Weight [kg]:</label>
+                <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight errors</label></br>
                 <input type="number" th:field="*{weight}" placeholder="80" class="form-control mb-4 col-4"><br>
             </fieldset>
         </fieldset>

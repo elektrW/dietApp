@@ -14,9 +14,10 @@
           <th scope="col">First name</th>
           <th scope="col">Last name</th>
           <th scope="col">Age</th>
-          <th scope="col">Growth</th>
-          <th scope="col">Weight</th>
-          <th scope="col">Testtylko</th>
+          <th scope="col">Growth [cm]</th>
+          <th scope="col">Weight [kg]</th>
+          <th scope="col">BMR [kcal]</th>
+          <th scope="col">Gender</th>
           <th> Actions </th>
         </tr>
         <tbody>
@@ -27,6 +28,7 @@
           <td th:text="${person.growth}"></td>
           <td th:text="${person.weight}"></td>
           <td th:text="${person.BMR}"></td>
+          <td th:text="${person.gender}"></td>
           <td>
             <a th:href="@{/showFormForUpdatePerson/{id}(id=${person.id})}" type="button">Update</a>
             <a th:href="@{/deletePerson/{id}(id=${person.id})}" type="button">Delete</a>

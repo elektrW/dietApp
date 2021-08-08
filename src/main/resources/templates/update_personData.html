@@ -19,8 +19,10 @@
         <legend>BMR Data</legend>
         <fieldset>
             <legend>Gender</legend>
-            <input type="radio" name="gender" class="form-control mb-4 col-4">Male<br>
-            <input type="radio" name="gender" class="form-control mb-4 col-4">Female<br>
+            <select th:field="*{gender}">
+                <option th:value="'MALE'" th:text="Male"></option>
+                <option th:value="'FEMALE'" th:text="Female"></option>
+            </select>
         </fieldset>
         <fieldset>
             <legend>Body</legend>
