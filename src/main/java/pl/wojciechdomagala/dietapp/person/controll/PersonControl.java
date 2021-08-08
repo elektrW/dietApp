@@ -3,13 +3,18 @@ package pl.wojciechdomagala.dietapp.person.controll;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.wojciechdomagala.dietapp.person.model.Gender;
 import pl.wojciechdomagala.dietapp.person.model.PersonData;
 import pl.wojciechdomagala.dietapp.person.service.PersonService;
 
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class PersonControl {
@@ -34,13 +39,19 @@ public class PersonControl {
     }
 
     @PostMapping("/savePersonInfo")
-    public String savePersonInfo(@ModelAttribute PersonData personData) {
-        personService.savePersonInfo(personData);
-        return "redirect:/person";
+    public String savePersonInfo(@Valid @ModelAttribute PersonData personData, BindingResult result) {
+        if (result.hasErrors()) {
+            List<ObjectError> errors = result.getAllErrors();
+            errors.forEach(err -> System.out.println(err.getDefaultMessage()));
+            return "new_person";
+        } else {
+            personService.savePersonInfo(personData);
+            return "redirect:/person";
+        }
     }
 
     @GetMapping("/showFormForUpdatePerson/{id}")
-    public String showFormForUpdatePersonData(@PathVariable long id, Model model) {
+    public String showFormForUpdatePersonData(@PathVariable Long id, Model model) {
         //get
         PersonData personData = personService.getPersonDataById(id);
         //update
