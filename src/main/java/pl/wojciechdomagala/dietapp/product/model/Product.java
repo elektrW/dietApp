@@ -1,6 +1,10 @@
 package pl.wojciechdomagala.dietapp.product.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Product")
@@ -11,11 +15,28 @@ public class Product {
     private Long id;
 
     //Product basic information
+    @NotEmpty(message = "The field cannot be empty")
+    @Size(min = 2, message = "At least 2 letters")
     private String name;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 0, message = "The minimum growth is 0 g")
     private Double weight;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 0, message = "The minimum growth is 0 kcal")
     private Double calories;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 0, message = "The minimum growth is 0 g")
     private Double protein;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 0, message = "The minimum growth is 0 g")
     private Double fat;
+
+    @NotNull(message = "The field cannot be empty")
+    @Min(value = 0, message = "The minimum growth is 0 g")
     private Double carbohydrates;
 
     public Product() {}
