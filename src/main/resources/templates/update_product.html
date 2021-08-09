@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<<head>
+<head>
   <meta charset="UTF-8">
   <title>Update management for product</title>
 </head>
 <body>
-<h1>Update Person Data</h1>
+<h1>Update Product Data</h1>
 <form action="#" th:action="@{/saveProductInfo}" th:object="${personData}" method="POST">
   <input type="hidden" th:field="*{id}"/>
   <label>Name:</label>
