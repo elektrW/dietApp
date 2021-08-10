@@ -15,17 +15,17 @@
         <div class="mb-3">
             <label>Name:</label>
             <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#FF0000">Name errors</label>
-            <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm">
+            <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm" step="0.01">
             <label>Weight [g]:</label>
-            <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000" step="0.01">Weight
+            <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight
                 errors</label>
-            <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm">
+            <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm" step="0.01">
             <label>Calories [kcal]:</label>
             <label th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}" style="color:#FF0000">Calories
                 errors</label>
-            <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm">
+            <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm" step="0.01">
             <label>Protein [g]:</label>
-            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000" step="0.01" step="0.01">Protein
+            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000">Protein
                 errors</label>
             <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm" step="0.01">
             <label>Fat [g]:</label>
