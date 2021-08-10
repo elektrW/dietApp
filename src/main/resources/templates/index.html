@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>DietApp</title>
 </head>
+<div class="container-sm">
 <body>
     <h1>Welcome in dietApp</h1>
-    <h2>Options to use:</h2>
-    <p>Person information</p>
-    <a th:href="@{/person}" type="button">Add info</a>
+    <h3>Options to use:</h3>
+    <h5>Person information</h5>
+    <a th:href="@{/person}" class="btn btn-secondary">Person info</a>
 
-    <p>Product information</p>
-    <a th:href="@{/product}" type="button">Add product</a>
+    <h5>Product information</h5>
+    <a th:href="@{/product}" class="btn btn-secondary">Product info</a>
 
-<h2>Table for week</h2>
-<table th:border="1">
-    <tr>
-        <th scope="col">Date</th>
+<h3>Control table</h3>
+    <h5>Answer the question for each day:</h5>
+    <p>'Work' - did you train in these day?</p>
+    <p>'Diet' - did you eat the right amount of calories?</p>
+<table border="1" class="table table-sm border-dark">
+    <tr class="table-dark">
+        <th scope="col">#</th>
         <th scope="row">Monday</th>
         <th scope="col">Tuesday</th>
         <th scope="col">Wednesday</th>
@@ -27,28 +35,46 @@
     </tr>
     <tbody>
     <tr>
-        <th>First Breakfast</th>
+        <th>Week 1</th>
+        <th>
+            <select>
+                <label>Work:</label>
+                <option th:value="'YES'" th:text="Yes"></option>
+                <option th:value="'NO'" th:text="No"></option>
+            </select>
+            <select>
+                <label>Diet:</label>
+                <option th:value="'YES'" th:text="Yes"></option>
+                <option th:value="'NO'" th:text="No"></option>
+            </select>
+        </th>
+        <th>
+            <select>
+                <label>Work:</label>
+                <option th:value="'YES'" th:text="Yes"></option>
+                <option th:value="'NO'" th:text="No"></option>
+            </select>
+            <select>
+                <label>Diet:</label>
+                <option th:value="'YES'" th:text="Yes"></option>
+                <option th:value="'NO'" th:text="No"></option>
+            </select>
+        </th>
+    <tr>
+    </tr>
     </tr>
     <tr>
-        <th>Second Breakfast</th>
+        <th>Week 2</th>
     </tr>
     <tr>
-        <th>Lunch</th>
+        <th>Week 3</th>
     </tr>
     <tr>
-        <th>Dinner</th>
-    </tr>
-    <tr>
-        <th>Workout</th>
-        <th><textarea name="mondayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="tuesdayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="wednesdayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="thursdayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="fridayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="saturdayWorkout" rows="4" cols="10"></textarea></th>
-        <th><textarea name="sundayWorkout" rows="4" cols="10"></textarea></th>
+        <th>Week 4</th>
     </tr>
     </tbody>
-</table>
+</table></br>
+    <button onclick="window.print()" class="btn btn-light">Print page</button>
 </body>
+</div>
 </html>

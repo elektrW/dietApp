@@ -47,7 +47,7 @@ public class PersonData {
                       Gender gender,
                       Integer age,
                       Integer growth,
-                      Integer weight,
+                      @NotNull Integer weight,
                       double BMR) {
         {
             this.firstName = firstName;
