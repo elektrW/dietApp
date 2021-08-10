@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
   <meta charset="UTF-8">
   <title>Update management for product</title>
 </head>
+<div class="container-sm">
 <body>
 <h1>Update Product Data</h1>
 <form action="#" th:action="@{/saveProductInfo}" th:object="${personData}" method="POST">
-  <input type="hidden" th:field="*{id}"/>
-  <label>Name:</label>
-  <p><input type="text" th:field="*{name}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <label>Weight [g]:</label>
-  <p><input type="number" th:field="*{weight}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <label>Calories [kcal]:</label>
-  <p><input type="number" th:field="*{calories}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <label>Protein [g]:</label>
-  <p><input type="number" th:field="*{protein}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <label>Fat [g]:</label>
-  <p><input type="number" th:field="*{fat}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <label>Carbohydrates [g]:</label>
-  <p><input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control mb-4 col-4"></p>
-  <button type="submit" class="btn btn-success col-2">Update</button>
+  <div class="mb-3">
+    <input type="hidden" th:field="*{id}"/>
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm">
+    <label>Weight [g]:</label>
+    <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm">
+    <label>Calories [kcal]:</label>
+    <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm">
+    <label>Protein [g]:</label>
+    <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm">
+    <label>Fat [g]:</label>
+    <input type="number" th:field="*{fat}" placeholder=".." class="form-control form-control-sm">
+    <label>Carbohydrates [g]:</label>
+    <input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control form-control-sm">
+  <button type="submit" class="btn btn-success">Update</button>
+    <a th:href="@{/product}" class="btn btn-secondary">Back</a>
+  </div>
 </form>
 </body>
+</div>
 </html>
