@@ -25,7 +25,7 @@
                 errors</label>
             <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm">
             <label>Protein [g]:</label>
-            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000">Protein
+            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000" step="0.01">Protein
                 errors</label>
             <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm">
             <label>Fat [g]:</label>
