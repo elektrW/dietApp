@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Person Info</title>
 </head>
+<div class="container-sm">
 <body>
     <div class="container">
       <h1>Person information</h1>
-      <a th:href="@{/showPersonInfoForm}" type="button">Add info</a>
-      <a th:href="@{/}" type="button">Homepage</a>
-      <table border="1">
-        <tr>
+      <a th:href="@{/showPersonInfoForm}" class="btn btn-success">Add info</a>
+      <a th:href="@{/}" class="btn btn-secondary">Homepage</a>
+      <table border="1" class="table table-sm border-dark">
+        <tr class="table-dark">
           <th scope="col">First name</th>
           <th scope="col">Last name</th>
           <th scope="col">Age</th>
@@ -30,12 +35,13 @@
           <td th:text="${person.BMR}"></td>
           <td th:text="${person.gender}"></td>
           <td>
-            <a th:href="@{/showFormForUpdatePerson/{id}(id=${person.id})}" type="button">Update</a>
-            <a th:href="@{/deletePerson/{id}(id=${person.id})}" type="button">Delete</a>
+            <a th:href="@{/showFormForUpdatePerson/{id}(id=${person.id})}" class="btn btn-primary">Update</a>
+            <a th:href="@{/deletePerson/{id}(id=${person.id})}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
         </tbody>
       </table>
     </div>
 </body>
+</div>
 </html>

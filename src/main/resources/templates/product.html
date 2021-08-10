@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Product Management</title>
 </head>
+<div class="container-sm">
 <body>
-<div class="container">
     <h1>Products</h1>
-    <a th:href="@{/showProductInfoForm}" type="button">Add product</a>
-    <a th:href="@{/}" type="button">Homepage</a>
-    <table border="1">
-        <tr>
+    <a th:href="@{/showProductInfoForm}" class="btn btn-success">Add product</a>
+    <a th:href="@{/}" class="btn btn-secondary">Homepage</a>
+    <table border="1" class="table table-sm border-dark">
+        <tr class="table-dark">
             <th scope="col">Name</th>
             <th scope="col">Weight [g]</th>
             <th scope="col">Calories [kcal]</th>
@@ -28,12 +32,12 @@
             <td th:text="${product.fat}"></td>
             <td th:text="${product.carbohydrates}"></td>
             <td>
-                <a th:href="@{/showFormForUpdateProduct/{id}(id=${product.id})}" type="button">Update</a>
-                <a th:href="@{/deleteProduct/{id}(id=${product.id})}" type="button">Delete</a>
+                <a th:href="@{/showFormForUpdateProduct/{id}(id=${product.id})}" class="btn btn-primary">Update</a>
+                <a th:href="@{/deleteProduct/{id}(id=${product.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
-</div>
 </body>
+</div>
 </html>
