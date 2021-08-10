@@ -1,49 +1,59 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns="http://www.w3.org/1999/html">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Person Management</title>
 </head>
+<div class="container-sm">
 <body>
-<h1>New Person Form</h1>
-<fieldset>
-    <form action="#" th:action="@{/savePersonInfo}" th:object="${personData}" method="POST">
-        <fieldset>
-            <legend>Names</legend>
-            <label>First name:</label>
-            <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:#FF0000">First name errors</label></br>
-            <input type="text" th:field="*{firstName}" placeholder="example: John" class="form-control mb-4 col-4"><br>
-            <label>Last name:</label>
-            <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:#FF0000">Last name errors</label></br>
-            <input type="text" th:field="*{lastName}" placeholder="example: Cherry" class="form-control mb-4 col-4"><br>
-        </fieldset>
-        <fieldset>
-            <legend>BMR Data</legend>
-            <fieldset>
-                <legend>Gender</legend>
+    <h1>New Person Form</h1>
+    <fieldset>
+        <form action="#" th:action="@{/savePersonInfo}" th:object="${personData}" method="POST" >
+            <div class="mb-3">
+                <legend>Names:</legend>
+                <label>First name:</label>
+                <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:#FF0000">First name
+                    errors</label>
+                <input type="text" th:field="*{firstName}" placeholder="example: John" class="form-control form-control-sm">
+                <label>Last name:</label>
+                <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:#FF0000">Last name
+                    errors</label>
+                <input type="text" th:field="*{lastName}" placeholder="example: Cherry" class="form-control form-control-sm">
+            </div>
+            <div class="mb-3">
+                <legend>BMR Data:</legend>
+                <fieldset>
+                    <label>Gender:</label>
                     <select th:field="*{gender}">
                         <option th:value="'MALE'" th:text="Male"></option>
                         <option th:value="'FEMALE'" th:text="Female"></option>
                     </select>
-            </fieldset>
-            <fieldset>
-                <legend>Body</legend>
-                <label>Age:</label>
-                <label th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color:#FF0000">Age errors</label></br>
-                <input type="number" th:field="*{age}" placeholder="25" class="form-control mb-4 col-4"><br>
-                <label>Growth [cm]:</label>
-                <label th:if="${#fields.hasErrors('growth')}" th:errors="*{growth}" style="color:#FF0000">Growth errors</label></br>
-                <input type="number" th:field="*{growth}" placeholder="185" class="form-control mb-4 col-4"><br>
-                <label>Weight [kg]:</label>
-                <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight errors</label></br>
-                <input type="number" th:field="*{weight}" placeholder="80" class="form-control mb-4 col-4"><br>
-            </fieldset>
-        </fieldset>
-      <button type="submit" class="btn btn-success col-2">Save</button>
-    </form>
-</fieldset>
-<a th:href="@{/person}" type="button">Back</a>
-<p>Note: You can edit your data later by clicking 'edit' at homepage</p>
+                </fieldset>
+                <fieldset>
+                    <label>Age:</label>
+                    <label th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color:#FF0000">Age
+                        errors</label>
+                    <input type="number" th:field="*{age}" placeholder="25" class="form-control form-control-sm">
+                    <label>Growth [cm]:</label>
+                    <label th:if="${#fields.hasErrors('growth')}" th:errors="*{growth}" style="color:#FF0000">Growth
+                        errors</label>
+                    <input type="number" th:field="*{growth}" placeholder="185" class="form-control form-control-sm">
+                    <label>Weight [kg]:</label>
+                    <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight
+                        errors</label>
+                    <input type="number" th:field="*{weight}" placeholder="80" class="form-control form-control-sm">
+                </fieldset>
+            </div>
+            <button type="submit" class="btn btn-success">Save</button>
+            <a th:href="@{/person}" class="btn btn-secondary">Back</a>
+        </form>
+    </fieldset>
+    <p>Note: You can edit your data later by clicking 'update' at homepage</p>
 </body>
+</div>
 </html>

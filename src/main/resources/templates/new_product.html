@@ -1,35 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous">
 <head>
     <meta charset="UTF-8">
     <title>Product Management</title>
 </head>
+<div class="container-sm">
 <body>
     <h1>New Product Form</h1>
-    <fieldset>
-        <form action="#" th:action="@{/saveProductInfo}" th:object="${product}" method="POST">
+    <form action="#" th:action="@{/saveProductInfo}" th:object="${product}" method="POST">
+        <div class="mb-3">
             <label>Name:</label>
-            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#FF0000">Name errors</label></br>
-            <p><input type="text" th:field="*{name}" placeholder=".." class="form-control mb-4 col-4"></p>
+            <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#FF0000">Name errors</label>
+            <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm">
             <label>Weight [g]:</label>
-            <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight errors</label></br>
-            <p><input type="number" th:field="*{weight}" placeholder=".." class="form-control mb-4 col-4"></p>
+            <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight
+                errors</label>
+            <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm">
             <label>Calories [kcal]:</label>
-            <label th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}" style="color:#FF0000">Calories errors</label></br>
-            <p><input type="number" th:field="*{calories}" placeholder=".." class="form-control mb-4 col-4"></p>
+            <label th:if="${#fields.hasErrors('calories')}" th:errors="*{calories}" style="color:#FF0000">Calories
+                errors</label>
+            <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm">
             <label>Protein [g]:</label>
-            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000">Protein errors</label></br>
-            <p><input type="number" th:field="*{protein}" placeholder=".." class="form-control mb-4 col-4"></p>
+            <label th:if="${#fields.hasErrors('protein')}" th:errors="*{protein}" style="color:#FF0000">Protein
+                errors</label>
+            <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm">
             <label>Fat [g]:</label>
-            <label th:if="${#fields.hasErrors('fat')}" th:errors="*{fat}" style="color:#FF0000">Fat errors</label></br>
-            <p><input type="number" th:field="*{fat}" placeholder=".." class="form-control mb-4 col-4"></p>
+            <label th:if="${#fields.hasErrors('fat')}" th:errors="*{fat}" style="color:#FF0000">Fat errors</label>
+            <input type="number" th:field="*{fat}" placeholder=".." class="form-control form-control-sm">
             <label>Carbohydrates [g]:</label>
-            <label th:if="${#fields.hasErrors('carbohydrates')}" th:errors="*{carbohydrates}" style="color:#FF0000">Carbohydrates errors</label></br>
-            <p><input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control mb-4 col-4"></p>
-            <button type="submit" class="btn btn-success col-2">Save</button>
-        </form>
-    </fieldset>
-    <a th:href="@{/product}" type="button">Back</a>
-    <p>Note: You can edit your data later by clicking 'edit' at homepage</p>
+            <label th:if="${#fields.hasErrors('carbohydrates')}" th:errors="*{carbohydrates}" style="color:#FF0000">Carbohydrates
+                errors</label>
+            <input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control form-control-sm">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a th:href="@{/product}" class="btn btn-secondary">Back</a>
+        </div>
+    </form>
+    <p>Note: You can edit your product data later by clicking 'update' at homepage</p>
 </body>
+</div>
 </html>
