@@ -9,6 +9,7 @@ Simple application with: BMR calculator for person and product base with nutriti
 * Spring Data JPA 
 * Hibernate
 * Spring MVC
+* HTML
 
 ## Link to application
 
