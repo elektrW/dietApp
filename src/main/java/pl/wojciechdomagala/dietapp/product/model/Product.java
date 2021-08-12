@@ -1,10 +1,7 @@
 package pl.wojciechdomagala.dietapp.product.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "Product")
@@ -20,23 +17,28 @@ public class Product {
     private String name;
 
     @NotNull(message = "The field cannot be empty")
-    @Min(value = 0, message = "The minimum growth is 0 g")
+    @Min(value = 0, message = "The minimum weight is 0 g")
+    @Max(value = 1000, message = "The maximum weight is 1000g")
     private Double weight;
 
     @NotNull(message = "The field cannot be empty")
-    @Min(value = 0, message = "The minimum growth is 0 kcal")
+    @Min(value = 0, message = "The minimum calories is 0 kcal")
+    @Max(value = 5000, message = "The maximum calories is 5000 kcal")
     private Double calories;
 
     @NotNull(message = "The field cannot be empty")
-    @Min(value = 0, message = "The minimum growth is 0 g")
+    @Min(value = 0, message = "The minimum protein is 0 g")
+    @Max(value = 250, message = "The maximum protein is 250 g")
     private Double protein;
 
     @NotNull(message = "The field cannot be empty")
-    @Min(value = 0, message = "The minimum growth is 0 g")
+    @Min(value = 0, message = "The minimum fat is 0 g")
+    @Max(value = 25, message = "The maximum fat is 50 g")
     private Double fat;
 
     @NotNull(message = "The field cannot be empty")
-    @Min(value = 0, message = "The minimum growth is 0 g")
+    @Min(value = 0, message = "The minimum carbohydrates is 0 g")
+    @Max(value = 300, message = "The minimum carbohydrates is 0 g")
     private Double carbohydrates;
 
     public Product() {}
