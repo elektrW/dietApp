@@ -27,14 +27,17 @@ public class PersonData {
 
     @NotNull(message = "The field cannot be empty")
     @Min(value = 16, message = "The minimum age is 16")
+    @Max(value = 123, message = "The maximum age is 123")
     private Integer age;
 
     @NotNull(message = "The field cannot be empty")
     @Min(value = 130, message = "The minimum growth is 130cm")
+    @Max(value = 250, message = "The maximum growth is 250cm")
     private Integer growth;
 
     @NotNull(message = "The field cannot be empty")
     @Min(value = 20, message = "The minimum weight is 20kg")
+    @Max(value = 600, message = "The maximum weight is 600kg")
     private Integer weight;
 
     private double BMR;
