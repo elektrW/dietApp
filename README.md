@@ -67,7 +67,7 @@ Simple application with: BMR calculator for person and product base with nutriti
 Planned functionality
 - [ ] Table where you can add products for each day by using already added from product database
 - [ ] Also in table i would like to add sum of calories for each day
-- [ ] MAX and MIN value for example in 'growth' 'weight' etc.
+- [x] MAX and MIN value for example in 'growth' 'weight' etc.
 - [ ] Delete confirmation window
 - [ ] Account for user
 - [ ] Option "Print table with completed fields"
