@@ -69,5 +69,5 @@ Planned functionality
 - [ ] Also in table i would like to add sum of calories for each day
 - [x] MAX and MIN value for example in 'growth' 'weight' etc.
 - [ ] Delete confirmation window
-- [ ] Account for user
+- [ ] Account for user (Spring security?)
 - [ ] Option "Print table with completed fields"
