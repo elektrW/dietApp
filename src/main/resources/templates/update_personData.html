@@ -34,7 +34,7 @@
             <label>Growth [cm]:</label>
             <input type="number" th:field="*{growth}" placeholder="185" class="form-control form-control-sm">
             <label>Weight [kg]:</label>
-            <input type="number" th:field="*{weight}" placeholder="80" class="form-control form-control-sm">
+            <input type="number" th:field="*{weight}" placeholder="80" class="form-control form-control-sm" step="0.01">
     </fieldset>
     <button type="submit" class="btn btn-success">Update</button>
     <a th:href="@{/person}" class="btn btn-secondary">Back</a>
