@@ -38,7 +38,7 @@ public class PersonData {
     @NotNull(message = "The field cannot be empty")
     @Min(value = 20, message = "The minimum weight is 20kg")
     @Max(value = 600, message = "The maximum weight is 600kg")
-    private Integer weight;
+    private Double weight;
 
     private double BMR;
 
@@ -50,7 +50,7 @@ public class PersonData {
                       Gender gender,
                       Integer age,
                       Integer growth,
-                      @NotNull Integer weight,
+                      @NotNull Double weight,
                       double BMR) {
         {
             this.firstName = firstName;
@@ -111,11 +111,11 @@ public class PersonData {
         this.growth = growth;
     }
 
-    public Integer getWeight() {
+    public Double getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(Double weight) {
         this.weight = weight;
     }
 
