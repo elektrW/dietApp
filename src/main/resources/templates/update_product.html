@@ -15,17 +15,17 @@
   <div class="mb-3">
     <input type="hidden" th:field="*{id}"/>
     <label>Name:</label>
-    <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm">
+    <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm" step="0.01">
     <label>Weight [g]:</label>
-    <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm">
+    <input type="number" th:field="*{weight}" placeholder=".." class="form-control form-control-sm" step="0.01">
     <label>Calories [kcal]:</label>
-    <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm">
+    <input type="number" th:field="*{calories}" placeholder=".." class="form-control form-control-sm" step="0.01">
     <label>Protein [g]:</label>
-    <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm">
+    <input type="number" th:field="*{protein}" placeholder=".." class="form-control form-control-sm" step="0.01">
     <label>Fat [g]:</label>
-    <input type="number" th:field="*{fat}" placeholder=".." class="form-control form-control-sm">
+    <input type="number" th:field="*{fat}" placeholder=".." class="form-control form-control-sm" step="0.01">
     <label>Carbohydrates [g]:</label>
-    <input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control form-control-sm">
+    <input type="number" th:field="*{carbohydrates}" placeholder=".." class="form-control form-control-sm" step="0.01">
   <button type="submit" class="btn btn-success">Update</button>
     <a th:href="@{/product}" class="btn btn-secondary">Back</a>
   </div>
