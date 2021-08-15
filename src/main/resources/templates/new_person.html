@@ -46,7 +46,7 @@
                     <label>Weight [kg]:</label>
                     <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight
                         errors</label>
-                    <input type="number" th:field="*{weight}" placeholder="80" class="form-control form-control-sm">
+                    <input type="number" th:field="*{weight}" placeholder="80" class="form-control form-control-sm" step="0.01">
                 </fieldset>
             </div>
             <button type="submit" class="btn btn-success">Save</button>
