@@ -15,7 +15,7 @@
         <div class="mb-3">
             <label>Name:</label>
             <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" style="color:#FF0000">Name errors</label>
-            <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm" step="0.01">
+            <input type="text" th:field="*{name}" placeholder=".." class="form-control form-control-sm">
             <label>Weight [g]:</label>
             <label th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}" style="color:#FF0000">Weight
                 errors</label>
