@@ -65,9 +65,9 @@ Simple application with: BMR calculator for person and product base with nutriti
 
 # Project status
 Planned functionality
-- [ ] Table where you can add products for each day by using already added from product database
-- [ ] Also in table i would like to add sum of calories for each day
+- [ ] Table with option 'add products' for each day by using already added product from database
+- [ ] Also in table 'sum of calories' for each day
 - [x] MAX and MIN value for example in 'growth' 'weight' etc.
 - [ ] Delete confirmation window
-- [ ] Account for user (Spring security?)
+- [ ] Account for user (Spring security?) ...in progress (comented code)
 - [ ] Option "Print table with completed fields"
